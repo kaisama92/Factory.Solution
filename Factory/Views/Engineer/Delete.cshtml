@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<h1>You are about to delete @Html.DisplayFor(model => model.EngineerName)</h1>
+<h1>Are you sure you want to continue?</h1>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+
+@Html.ActionLink($"Back to {Model.EngineerName}'s Details", "Details", new { id = Model.EngineerId })
