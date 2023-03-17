@@ -13,7 +13,7 @@ namespace DocOffice
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<DocOfficeContext>(
+      builder.Services.AddDbContext<FactoryContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
