@@ -16,7 +16,6 @@ namespace Factory.Controllers
       _db = db;
     }
 
-    [HttpGet("/")]
     public ActionResult Index()
     {
       return View(_db.Engineers.ToArray());
@@ -47,7 +46,7 @@ namespace Factory.Controllers
 
     public ActionResult AddMachine(int id)
     {
-      Engineer thisEngineer = FirstOrDefault(engineer => engineer.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View(thisEngineer);
     }
