@@ -9,6 +9,7 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.EngineerName, "Engineer Name")
+  @Html.TextBoxFor(model => model.EngineerName)
 
   <input type="submit" value="add new engineer" class="btn btn-primary"/>
 }

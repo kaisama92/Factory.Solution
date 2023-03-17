@@ -12,16 +12,18 @@
   <h3>You haven't added any machines to this engineer. Add one @Html.ActionLink("Now", "AddMachine")</h3>
 }
 
-@foreach (EngineerMachine join in Model.JoinEntities)
-{
-  <h4>Machine: @Html.ActionLink($"{join.Machine.MachineName}", "Details", "Machine", new { id = join.Machine.MachineId})</h4>
-
-  @using (@Html.BeginForm("DeleteJoin", "Engineer"))
+<ul>
+  @foreach (EngineerMachine join in Model.JoinEntities)
   {
-    @Html.Hidden("joinId", @join.EngineerMachineId)
-    <input type="submit" value="Delete" />
+    <li>Machine: @Html.ActionLink($"{join.Machine.MachineName}", "Details", "Machine", new { id = join.Machine.MachineId})</li>
+
+    @using (@Html.BeginForm("DeleteJoin", "Engineer"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Delete" />
+    }
   }
-}
+</ul>
 
 <p>@Html.ActionLink("Remove", "Delete", new { id = Model.EngineerId}) Engineer</p>
 
